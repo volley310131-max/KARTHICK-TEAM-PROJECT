@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Home Refresh | PocketSmart AI</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<header class="topbar"><a class="brand" href="/">PocketSmart <span>AI</span></a><a class="back-link" href="/">All planners</a></header>
+	<main class="form-layout">
+		<section class="form-heading"><p class="eyebrow">01 / HOME REFRESH</p><h1>A room you love,<br>within your budget.</h1><p>Share a few details and get a tailored list of ideas.</p></section>
+		<section class="form-panel">
+			<form action="/generate-home" method="post">
+				<label for="budget">Your budget</label>
+				<div class="money-input"><span>&#8377;</span><input id="budget" name="budget" type="number" min="1" step="1" placeholder="25000" required></div>
+				<label for="room">Room to refresh</label>
+				<input id="room" name="room" type="text" placeholder="Living room, bedroom..." required>
+				<label for="style">Style</label>
+				<input id="style" name="style" type="text" placeholder="Minimal, warm, modern..." required>
+				<button type="submit">Create my home plan <span>&#8594;</span></button>
+			</form>
+			{% if result %}<section class="result" aria-live="polite"><h2>Your home plan</h2><div class="result-copy">{{ result }}</div></section>{% endif %}
+		</section>
+	</main>
+</body>
+</html>

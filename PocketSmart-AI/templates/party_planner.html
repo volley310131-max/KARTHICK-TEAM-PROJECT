@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Party Plan | PocketSmart AI</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<header class="topbar"><a class="brand" href="/">PocketSmart <span>AI</span></a><a class="back-link" href="/">All planners</a></header>
+	<main class="form-layout">
+		<section class="form-heading"><p class="eyebrow">02 / PARTY PLAN</p><h1>Gather everyone.<br>Keep costs clear.</h1><p>Set the scene and get a balanced event budget.</p></section>
+		<section class="form-panel">
+			<form action="/generate-party" method="post">
+				<label for="budget">Total budget</label>
+				<div class="money-input"><span>&#8377;</span><input id="budget" name="budget" type="number" min="1" step="1" placeholder="30000" required></div>
+				<label for="guests">Number of guests</label>
+				<input id="guests" name="guests" type="number" min="1" step="1" placeholder="20" required>
+				<label for="event_type">What are you celebrating?</label>
+				<input id="event_type" name="event_type" type="text" placeholder="Birthday, graduation..." required>
+				<label for="venue">Venue</label>
+				<input id="venue" name="venue" type="text" placeholder="At home, garden, restaurant..." required>
+				<button type="submit">Build my party plan <span>&#8594;</span></button>
+			</form>
+			{% if result %}<section class="result" aria-live="polite"><h2>Your party plan</h2><div class="result-copy">{{ result }}</div></section>{% endif %}
+		</section>
+	</main>
+</body>
+</html>

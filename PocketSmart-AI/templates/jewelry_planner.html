@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jewelry Finder | PocketSmart AI</title>
+	<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+	<header class="topbar"><a class="brand" href="/">PocketSmart <span>AI</span></a><a class="back-link" href="/">All planners</a></header>
+	<main class="form-layout">
+		<section class="form-heading"><p class="eyebrow">03 / JEWELRY FINDER</p><h1>Find a piece<br>worth keeping.</h1><p>Get considered jewelry ideas for your budget and moment.</p></section>
+		<section class="form-panel">
+			<form action="/generate-jewelry" method="post">
+				<label for="budget">Your budget</label>
+				<div class="money-input"><span>&#8377;</span><input id="budget" name="budget" type="number" min="1" step="1" placeholder="10000" required></div>
+				<label for="occasion">Occasion</label>
+				<input id="occasion" name="occasion" type="text" placeholder="Everyday, wedding, gift..." required>
+				<label for="style">Style</label>
+				<input id="style" name="style" type="text" placeholder="Classic, statement, delicate..." required>
+				<button type="submit">Find my jewelry <span>&#8594;</span></button>
+			</form>
+			{% if result %}<section class="result" aria-live="polite"><h2>Your jewelry picks</h2><div class="result-copy">{{ result }}</div></section>{% endif %}
+		</section>
+	</main>
+</body>
+</html>
